@@ -1,0 +1,19 @@
+{
+  "name": "black-friday",
+  "author": "Steffen Kühne",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stekhn/black-friday.git"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "d3": "^4.13.0",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  }
+}
