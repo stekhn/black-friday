@@ -8,9 +8,13 @@
     "type": "git",
     "url": "git@github.com:stekhn/black-friday.git"
   },
+  "scripts": {
+    "start": "node node_modules/http-server/bin/http-server -s -o --cors"
+  },
   "dependencies": {
     "async": "^2.6.0",
     "d3": "^4.13.0",
+    "http-server": "^0.11.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
