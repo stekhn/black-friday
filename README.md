@@ -4,7 +4,9 @@ No, Black Friday deals are trying to get you to buy something you probably don't
 
 The analysis was done in my lunch break and compares the cheapest available prices for 787 items on the German price comparison website [Idealo.de](https://www.idealo.de/). Therefore, all statements and interpretations can only be applied to the German online retail market.
 
-This analysis is derived from my analysis of the impact of the cryptocurrency hype on the price of graphics cards: [The GPU Price Surge](https://github.com/stekhn/gpu-price-surge-analysis)
+This project is derived from my analysis of the [The GPU Price Surge](https://github.com/stekhn/gpu-price-surge-analysis).
+
+**See the chart and discussion on Reddit**: https://www.reddit.com/r/dataisbeautiful/comments/9znuf7/oc_are_black_friday_deals_worth_it/
 
 ### Usage
 
@@ -13,15 +15,47 @@ This analysis is derived from my analysis of the impact of the cryptocurrency hy
 3. Start a local web server `npm start`
 
 ### Data
-The data was scraped from the Idealo, a German price comparison website. The list of items was compiles from Idealo's Black Friday list.
+The data was scraped from the Idealo, a German price comparison website. The list of items was compiles from Idealo's Black Friday list. See the full list of products here: [data/product-list.json](https://github.com/stekhn/black-friday/blob/master/data/product-list.json)
 
-You can see the full list of products here: [data/product-list.json](https://github.com/stekhn/black-friday/blob/master/data/product-list.json)
+And that's how the data is structured:
+
+```javascript
+[
+  {
+    "id": "5115308",
+    "name": "Apple AirPods",
+    "url": "https://www.idealo.de/preisvergleich/OffersOfProduct/5115308_-airpods-apple.html"
+  },
+  {
+   // ... many more items
+  }
+]
+```
 
 ### Scraping
 
 Idealo provides an API endpoint for price history (which they use to render nice price chart on their website): `https://www.idealo.de/offerpage/pricechart/api/PRODUCTID?period=P3M`
 
-I'm using the product IDs from the product list to make some request to API and fetch the data for the last 3 month.
+Requesting this URL with the Apple Airpods product ID will return a JSON object:
+
+```javascript
+{
+  "country": "DE",
+  "data": [
+    {
+      "x": "2018-08-23",
+      "y": 134.9
+    },
+    {
+      // ... many more data points
+    }
+  ],
+  "startDate": "2018-08-23",
+  "availableSinceDate": ""
+}
+```
+
+I'm using the product IDs from the product list to make the requests and fetch the data for the last 3 month.
 
 ```
 $ node getPriceHistory.js
