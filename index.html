@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width">
+
+  <title>Are Black Friday deals worth it?</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      margin: 1em;
+    }
+
+    h1 {
+      font-size: 1.75em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    figure {
+      margin: 1em 0 2em;
+    }
+
+    svg {
+      overflow: visible;
+      font-size: 1em;
+    }
+
+    .axis {
+      font-size: .9em;
+    }
+
+    .axis .domain {
+      display: none;
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
+  <script src="chart/chart.js"></script>
+</head>
+
+<body>
+  <h1 style="margin-bottom: 0">Average change in value (in %)</h1>
+  <p style="margin-top: 0" class="key">Based on 787 items on Black Friday sale in Germany</p>
+  <figure id="chart"></figure>
+  <p>Prices: <a href="https://idealo.de">Idealo.de</a>, Analysis: <a href="https://github.com/stekhn/black-friday">Steffen Kühne</a></p>
+</body>
+
+</html>
