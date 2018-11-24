@@ -34,7 +34,6 @@ function drawProducts(data, chart) {
   current.chart = chart;
   current.scale = drawAxis(current);
   current.lines = drawLines(current);
-  current.marker = drawMarker(current);
 }
 
 function drawChart() {
