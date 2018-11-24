@@ -1,21 +1,21 @@
 # Are Black Friday deals worth it?
 
-No, Black Friday deals are trying to get you to buy something you probably don't need and never intended to buy in the first place. On the other hand, you might save about 12% on average.  
+No, Black Friday deals are trying to get you to buy something you probably don't need and never intended to buy in the first place. On the other hand, you might save about 12% on average.
 
-The analysis was done in my lunch break and compares the cheapest available prices for 787 items on the German price comparison website [Idealo.de](https://www.idealo.de/). Therefore, all statements and interpretations can only be applied to the German online retail market.
+![Price history](chart.jpg)
 
-This project is derived from my analysis of the [The GPU Price Surge](https://github.com/stekhn/gpu-price-surge-analysis).
+**See the discussion on Reddit**: https://www.reddit.com/r/dataisbeautiful/comments/9znuf7/oc_are_black_friday_deals_worth_it/
 
-**See the chart and discussion on Reddit**: https://www.reddit.com/r/dataisbeautiful/comments/9znuf7/oc_are_black_friday_deals_worth_it/
+The analysis was done on my lunch break and compares the cheapest available prices for 787 items on the German price comparison website [Idealo.de](https://www.idealo.de/). Therefore, all statements and interpretations can only be applied to the German online retail market. This project is based on my analysis of the [The GPU Price Surge](https://github.com/stekhn/gpu-price-surge-analysis).
 
 ### Usage
 
-1. Clone repository `git clone https://...`
+1. Clone repository `git clone https://github.com/stekhn/black-friday.git`
 2. Install dependencies `npm install`
 3. Start a local web server `npm start`
 
 ### Data
-The data was scraped from the Idealo, a German price comparison website. The list of items was compiles from Idealo's Black Friday list. See the full list of products here: [data/product-list.json](https://github.com/stekhn/black-friday/blob/master/data/product-list.json)
+The data was scraped from the Idealo, a German price comparison website. The list of items was compiles from Idealo's [Black Friday list](https://www.idealo.de/preisvergleich/ProductCategory/28228.html). See the full list of products here: [data/product-list.json](https://github.com/stekhn/black-friday/blob/master/data/product-list.json)
 
 And that's how the data is structured:
 
@@ -77,9 +77,9 @@ The percentages get saved in [data/product-percentages.json](https://github.com/
 
 ### Chart
 
-The chart was build with [D3.js](https://d3js.org/) and is still very ”beta”. Drawing a few hundred lines is something that should be done with Canvas or WebGL – not SVG. At the moment, the performance is very laggy.
+The chart was build with [D3.js](https://d3js.org/). Drawing a few hundred lines is something that should be done with Canvas or WebGL – not SVG. At the moment, the performance is very laggy.
 
 ### ToDo
 - Add interpretation of the results
 - Use Canvas to draw the chart
-- Do the dishes
+- Draw axis on top of the lines
