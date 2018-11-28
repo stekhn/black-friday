@@ -15,6 +15,7 @@ The analysis was done on my lunch break and compares the cheapest available pric
 3. Start a local web server `npm start`
 
 ### Data
+
 The data was scraped from the Idealo, a German price comparison website. The list of items was compiles from Idealo's [Black Friday list](https://www.idealo.de/preisvergleich/ProductCategory/28228.html). See the full list of products here: [data/product-list.json](https://github.com/stekhn/black-friday/blob/master/data/product-list.json)
 
 And that's how the data is structured:
@@ -77,9 +78,7 @@ The percentages get saved in [data/product-percentages.json](https://github.com/
 
 ### Chart
 
-The chart was build with [D3.js](https://d3js.org/). Drawing a few hundred lines is something that should be done with Canvas or WebGL – not SVG. At the moment, the performance is very laggy.
+The chart was build with [D3.js](https://d3js.org/) using the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) for better performance.
 
-### ToDo
-- Add interpretation of the results
-- Use Canvas to draw the chart
-- Draw axis on top of the lines
+### Acknowledgments
+- The chart is based on Mike Bostock's [Canvas line chart example](https://bl.ocks.org/mbostock/1550e57e12e73b86ad9e) 
