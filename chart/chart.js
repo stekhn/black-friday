@@ -20,6 +20,7 @@ function init() {
 
 function draw(data) {
   var container = d3.select('#chart');
+  var ratio = getRetinaRatio();
 
   // Set initial dimensions
   width = container.node().getBoundingClientRect().width;
@@ -28,14 +29,19 @@ function draw(data) {
   // Create canvas context
   var context = container
     .append('canvas')
-    .attr('width', width)
-    .attr('height', height)
+    .attr('width', width * ratio)
+    .attr('height', height * ratio)
+    .style('width', width + 'px')
+    .style('height', height + 'px')
     .node()
     .getContext('2d');
 
+  // Scale canvas by retina ratio
+  context.scale(ratio, ratio)
+
   // Set drawing dimensions
   width = width - margin.left - margin.right,
-    height = height - margin.top - margin.bottom;
+  height = height - margin.top - margin.bottom;
 
   var xMax = d3.max(data, function (d) {
     return d3.max(d.prices, function (c) {
@@ -118,6 +124,9 @@ function draw(data) {
   context.textBaseline = 'middle';
   context.fillStyle = 'black';
   context.fillText(Math.round(lastValue.price) + ' %', lastX - 10, lastY);
+
+  // Scale canvas by pixel density
+  context.scale(1, 1);
 }
 
 function redraw() {
@@ -126,6 +135,22 @@ function redraw() {
     d3.select('#chart').html('');
     draw(cachedData);
   }, 500);
+}
+
+// http://bl.ocks.org/devgru/a9428ebd6e11353785f2
+function getRetinaRatio() {
+  var devicePixelRatio = window.devicePixelRatio || 1
+  var c = document.createElement('canvas').getContext('2d')
+  var backingStoreRatio = [
+    c.webkitBackingStorePixelRatio,
+    c.mozBackingStorePixelRatio,
+    c.msBackingStorePixelRatio,
+    c.oBackingStorePixelRatio,
+    c.backingStorePixelRatio,
+    1
+  ].reduce(function (a, b) { return a || b })
+
+  return devicePixelRatio / backingStoreRatio
 }
 
 function getAverage(data) {
